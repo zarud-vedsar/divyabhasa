@@ -50,20 +50,20 @@ if(isset($submitbtn) && strcmp($submitbtn , "otp_generate") == 0 ){
                 $mail->isSMTP();                                            // Set mailer to use SMTP
                 $mail->Host       = 'smtp.gmail.com';                     // Specify main and backup SMTP servers
                 $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-                $mail->Username   = 'prakashsingh.pbh@gmail.com';     // SMTP username
-                $mail->Password   = 'ukruuatvmgnzsdac';                     // SMTP password
+                $mail->Username   = 'divyabhashasanskritam@gmail.com';     // SMTP username
+                $mail->Password   = 'gwoudbivxhhxqnwn';                     // SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption, PHPMailer::ENCRYPTION_SMTPS also accepted
                 $mail->Port       = 587;                                    // TCP port to connect to
 
                 //Recipients
-                $mail->setFrom('prakashsingh.pbh@gmail.com', 'G N Singh Academy');
+                $mail->setFrom('divyabhashasanskritam@gmail.com', 'Divya Bhasha Sanskritam');
                 $mail->addAddress($user['email'], $user['name']);           // Add a recipient
-                $mail->addReplyTo('prakashsingh.pbh@gmail.com', 'Reply');
+                $mail->addReplyTo('divyabhashasanskritam@gmail.com', 'Reply');
 
                 // Content
                 $mail->isHTML(true);                                        // Set email format to HTML
                 $mail->Subject = 'OTP To Reset Password';
-                $mail->Body    = 'OTP too Reset Your Password with G N Singh Academy is  <b>'.$otp.'</b>';
+                $mail->Body    = 'OTP too Reset Your Password with Divya Bhasha Sanskritam is  <b>'.$otp.'</b>';
                 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                 if($mail->send()){

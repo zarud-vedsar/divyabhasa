@@ -41,7 +41,7 @@ require "./inc/header.php";
             <div class="section-content sm-text-center">
                 <div class="row">
                     <div class="col-md-10">
-                        <h3 class="text-white mt-0 ml-30">Join With G. N. Singh IAS Academy </h3>
+                        <h3 class="text-white mt-0 ml-30">Join With Divya Bhasha Sanskritam </h3>
                     </div>
                     <div class="col-md-2 text-end">
                         <a class="btn btn-dark btn-flat ml-20" href="#promoModal1" data-lightbox="inline">Register Now</a>
@@ -57,7 +57,7 @@ require "./inc/header.php";
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="title text-uppercase">Our <span class="text-theme-colored">Classes</span></h2>
-                        <p class="text-uppercase letter-space-2">Join our G. N. Singh IAS Academy club and be healthy.</p>
+                        <p class="text-uppercase letter-space-2">Join our Divya Bhasha Sanskritam club and be healthy.</p>
                     </div>
                 </div>
             </div>

@@ -5,12 +5,12 @@ if ($_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === '192.
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $database = "gnsingh";
+    $database = "divyabhasha";
 } else {
     $servername = "localhost"; // Change this if your remote server has a different address
-    $username = "muyaeenmmr";
+    $username = "skkgmkywsy";
     $password = "3dqmDxtPpQ";
-    $database = "muyaeenmmr";
+    $database = "nDPMbf6hGt";
 }
 
 

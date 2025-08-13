@@ -11,7 +11,7 @@ if (isset($_SESSION['admin_id'])) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<title>GN Singh IAS Academy - Login</title>
+	<title>Divya Bhasha Sanskritam - Login</title>
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="assets/img/favicon.png">
@@ -49,7 +49,7 @@ if (isset($_SESSION['admin_id'])) {
 					</div>
 					<div class="login-right">
 						<div class="login-right-wrap">
-							<h1 class="mb-3">Welcome to GN Singh IAS Academy</h1>
+							<h1 class="mb-3">Welcome to Divya Bhasha Sanskritam</h1>
 							<h2>Sign in</h2>
 							<!-- Form -->
 							<form id="admin_login">

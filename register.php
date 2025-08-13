@@ -3,47 +3,44 @@ require "./inc/head.php";
 // require "./inc/header.php";
 ?>
 <style>
-     @media screen and (min-width:0px) and (max-width: 950px) {
-        .layer-overlay.overlay-dark-4::before{
-    background-image: url(./assets/images/bg/bg-login-img.jpg);
-    background-repeat: no-repeat;
-    background-size: cover; 
-    background-position: center;  */
-    /* background:gray; */
+    @media screen and (min-width:0px) and (max-width: 950px) {
 
-}
+        .bg-custom1 {
+            background: #aeaeae4a;
+            color: black !important;
+            margin: 10px 10px;
+        }
 
-.bg-custom1 {
-    background: #aeaeae4a;
-        color: black !important;
-        margin: 10px 10px;
-}
-.btn {
-    font-size: 14px;
-    padding: 8px 22px;
-    line-height: 1.38;
-    width: 100%;
-}
-.text-primary {
-    color: #0b49cf;
-}
-.p-50 {
-        padding: 18px 30px !important;
+        .btn {
+            font-size: 14px;
+            padding: 8px 22px;
+            line-height: 1.38;
+            width: 100%;
+        }
+
+        .text-primary {
+            color: #0b49cf;
+        }
+
+        .p-50 {
+            padding: 18px 30px !important;
+        }
+
+        .text-uppercase {
+
+            text-align: center;
+        }
     }
-.text-uppercase {
-
-    text-align: center;
-}
-     }
 </style>
 
 <div class="main-content">
-    <section class="divider layer-overlay overlay-dark-4" data-stellar-background-ratio="0.4"
-        data-bg-img="./assets/images/bg/bgfront.png">
+    <section class="divider layer-overlay">
         <div class="container pt-0 pb-0">
             <div class="section-content">
                 <div class="row">
-                    <div class="col-md-6"></div>
+                    <div class="col-md-6 d-none d-md-block d-lg-block">
+                        <img src="./upload/1755057540_1160504.png" class="img-fluid" alt="Divyabhasha Registration">
+                    </div>
                     <div class="col-md-6 bg-custom1 p-50">
 
                         <form id="registration_submit" class="mt-20 registration_submit">

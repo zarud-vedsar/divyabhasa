@@ -149,7 +149,7 @@ require "./inc/header.php";
             <div class="section-content sm-text-center">
                 <div class="row">
                     <div class="col-md-10">
-                        <h3 class="text-white mt-0 ml-30">Join With G. N. Singh IAS Academy </h3>
+                        <h3 class="text-white mt-0 ml-30">Join With Divya Bhasha Sanskritam </h3>
                     </div>
                     <div class="col-md-2 text-end">
                         <a class="btn btn-dark btn-flat ml-20" href="#promoModal1" data-lightbox="inline">Register Now</a>
@@ -165,7 +165,7 @@ require "./inc/header.php";
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="title">Our <span class="text-theme-colored">Classes</span></h2>
-                        <p class>Join our G. N. Singh IAS Academy.</p>
+                        <p class>Join our Divya Bhasha Sanskritam.</p>
                     </div>
                 </div>
             </div>
@@ -247,7 +247,7 @@ require "./inc/header.php";
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="title">Our <span class="text-theme-colored"> Trainers</span></h2>
-                        <p class>Join our G. N. Singh IAS Academy.</p>
+                        <p class>Join our Divya Bhasha Sanskritam.</p>
                     </div>
                 </div>
             </div>
@@ -296,7 +296,7 @@ require "./inc/header.php";
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
                         <h2 class="title">Our <span class="text-theme-colored">Gallery</span></h2>
-                        <p class>Join our G. N. Singh IAS Academy.</p>
+                        <p class>Join our Divya Bhasha Sanskritam.</p>
                     </div>
                 </div>
             </div>
@@ -435,7 +435,7 @@ require "./inc/header.php";
                         <div class="pricing-table pb-0 mt-sm-0 maxwidth400 bg-lightest text-center">
                             <img src="./assets/images/pricing/2.jpg" alt class="img-fullwidth img-responsive">
                             <div class="pricing-title bg-theme-colored p-20">
-                                <h5 class="text-uppercase font-weight-400 text-white letter-space-1 mt-0">Prepare with G. N. Singh IAS Academy</h5>
+                                <h5 class="text-uppercase font-weight-400 text-white letter-space-1 mt-0">Prepare with Divya Bhasha Sanskritam</h5>
                             </div>
                             <div class="pricing-info">
                                 <ul class="table-list list mt-0 no-bg no-border no-bullet">
@@ -462,7 +462,7 @@ require "./inc/header.php";
                 <div class="row">
                     <div class="col-md-6">
                         <h3 class="line-bottom mb-60">Why <span class="text-theme-colored">Choose Us</span> </h3>
-                        <p class="para">At G. N. Singh IAS Academy, we understand that preparing for the IAS exam is a transformative journey. Here’s why you should choose us:</p>
+                        <p class="para">At Divya Bhasha Sanskritam, we understand that preparing for the IAS exam is a transformative journey. Here’s why you should choose us:</p>
                         <div class="bxslider bx-nav-top" data-minslides="3">
                             <div class="icon-box border-bottom clearfix">
                                 <a href="#" class="icon icon-circled bg-theme-colored icon-lg pull-left flip sm-pull-none">

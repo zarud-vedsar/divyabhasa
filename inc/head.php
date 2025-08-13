@@ -11,8 +11,8 @@ $select_website_setting = runFatch("SELECT * FROM tbl_website_setting");
 
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="G. N. Singh IAS Academy" />
-    <meta name="keywords" content="G. N. Singh IAS Academy" />
+    <meta name="description" content="Divya Bhasha Sanskritam" />
+    <meta name="keywords" content="Divya Bhasha Sanskritam" />
     <meta name="author" content="Vedsar" />
 
     <title><?= $select_website_setting[0]['website_title'] ?></title>
