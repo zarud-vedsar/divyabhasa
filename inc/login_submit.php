@@ -29,7 +29,7 @@ if (isset($_POST['email']) && filter($_POST['email'])) {
 if (!$res) {
 
     // Perform SQL query to check if the provided email and password are valid
-    $query = "SELECT * FROM tbl_users WHERE email = '$email' AND password = '$password'";
+    $query = "SELECT * FROM tbl_users WHERE email = '$email' AND password = '$password' AND status = 1";
     $result = runFatch($query);
 
     if (count($result) == 1) {
@@ -39,7 +39,7 @@ if (!$res) {
 
         $_SESSION['user_id'] = $userid;
         $_SESSION['user_name'] = $result[0]['name'];
-        $_SESSION['GNSinghAppid'] =  $uniqueid;
+        $_SESSION['DivyaBhashaAppid'] =  $uniqueid;
 
         runUpdate("UPDATE `tbl_users` SET `appid`='$uniqueid' WHERE `id`='$userid'");
 

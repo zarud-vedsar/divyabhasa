@@ -3,12 +3,7 @@ require "./inc/head.php";
 // require "./inc/header.php";
 ?>
 <style>
-    
     @media screen and (min-width:0px) and (max-width: 950px) {
-   
-
-
- 
 }
  /* design for  view */
 @media screen and (min-width:0px) and (max-width: 767px) {
@@ -46,12 +41,13 @@ require "./inc/head.php";
 </style>
 
 <div class="main-content">
-<section class="divider layer-overlay overlay-dark-4 m-login" data-stellar-background-ratio="0.4"
-        data-bg-img="./assets/images/bg/bgfront.png" style="min-height:100vh;">
+<section class="divider layer-overlay m-login" style="min-height:100vh;">
     <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh;">
         <div class="section-content">
             <div class="row">
-                <div class="col-md-6"></div>
+               <div class="col-md-6 d-none d-md-block d-lg-block">
+                        <img src="./upload/1755057540_1160504.png" class="img-fluid" alt="Divyabhasha Registration">
+                    </div>
                 <div class="col-md-6 bg-custom1 p-50">
                     <form id="login_submit" class="login_submit">
                         <h2 class=" text-uppercase text-center">Login Here</h2>

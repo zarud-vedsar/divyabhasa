@@ -5,28 +5,19 @@ require "./inc/config/class/config.php";
 
 runUpdate("UPDATE `zarud_batch` SET `status`='1' WHERE `validtill` < now()");
 
-if (!isset($_SESSION['user_id']) && !isset($_SESSION['GNSinghAppid'])) {
+if (!isset($_SESSION['user_id']) && !isset($_SESSION['DivyaBhashaAppid'])) {
 //delete localt storage
 	header("Location: ../index.php?login=false");
 }
 else{
-
-    $appid= $_SESSION['GNSinghAppid'];
-
+    $appid= $_SESSION['DivyaBhashaAppid'];
     $currentuserid=$_SESSION['user_id'];
-    
-
     $isgenuin = runFatch("SELECT id FROM `tbl_users` WHERE id = '$currentuserid' AND appid= '$appid';");
-
     if(!$isgenuin){
         header("Location: ../index.php?login=false");
     }
 }
-
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +27,7 @@ else{
     <title>Divya Bhasha Sanskritam</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="./assets/img/favicon.png">
+    <link rel="shortcut icon" href="./assets/img/gns-logo.png">
 
     <!-- include summernote css -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
@@ -584,7 +575,7 @@ else{
     <script> 
      if (!localStorage.getItem('appId')){
         
-        localStorage.setItem('appId',"<?php echo $_SESSION['GNSinghAppid']?>");
+        localStorage.setItem('appId',"<?php echo $_SESSION['DivyaBhashaAppid']?>");
      }
     </script>
 </head>

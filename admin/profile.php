@@ -42,7 +42,7 @@ if (isset($_GET['admin_id']) && !empty($_GET['admin_id'])) {
                                 <?php
 								} else {
 								?>
-                                <img class="rounded-circle" alt="User Image" src="assets/img/profiles/avatar-02.jpg">
+                                <img class="rounded-circle" alt="User Image" src="../user/assets/img/gns-logo.png">
                                 <?php
 								}
 								?>

@@ -3,9 +3,10 @@ require "./inc/head.php";
 require "./inc/headbar.php";
 require "./inc/sidebar.php";
 
-if(isset($_GET['cid']) && !empty($_GET['cid']))
+if(isset($_GET['cid']) && !empty($_GET['cid'])){
 $cid= $_GET['cid'];
 $class = runFatch("SELECT * FROM `tbl_class` WHERE `id`='$cid'");
+}
 ?>
 <!-- Page Wrapper -->
 <div class="page-wrapper">
@@ -23,7 +24,7 @@ $class = runFatch("SELECT * FROM `tbl_class` WHERE `id`='$cid'");
                     </div>
                 </div>
             </div>
-            <?php if ($class) { ?>
+            <?php if (isset($class)) { ?>
                 <div class="row">
                     <div class="col-md-6">
                         <img src="../upload/<?= @$class[0]['image'];?>" alt='class img' class="img-fluid" style="width:60%;margin:auto;">

@@ -9,10 +9,10 @@
             <!-- Logo -->
             <div class="header-left">
                 <a href="index.php" class="logo mx-auto">
-                    <img src="./assets/img/vedsar-logo.png" alt="Logo">
+                    <img src="../user/assets/img/gns-logo.png" alt="Logo">
                 </a>
                 <a href="index.php" class="logo logo-small">
-                    <img src="./assets/img/vedsar-logo.png" alt="Logo" width="30" height="30">
+                    <img src="../user/assets/img/gns-logo.png" alt="Logo" width="30" height="30">
                 </a>
             </div>
             <!-- /Logo -->

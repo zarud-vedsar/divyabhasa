@@ -122,7 +122,7 @@ if (isset($_GET['user_id']) && !empty($_GET['user_id'])) {
 												<?php
 												$state_id = @$select_user[0]['state'];
 												$select_state = runFatch("SELECT * FROM tbl_states WHERE id = {$state_id}");
-												echo $select_state[0]['name'];
+												echo @$select_state[0]['name'];
 												?>
 										</div>
 									</div>

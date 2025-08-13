@@ -45,7 +45,7 @@ if (!$res) {
 
         $_SESSION['user_id'] = $userid;
         $_SESSION['user_name'] = $result[0]['name'];
-        $_SESSION['GNSinghAppid'] =  $uniqueid;
+        $_SESSION['DivyaBhashaAppid'] =  $uniqueid;
 
         runUpdate("UPDATE `tbl_users` SET `appid`='$uniqueid' WHERE `id`='$userid'");
 
