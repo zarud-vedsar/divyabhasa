@@ -438,7 +438,7 @@ require "./inc/sidebar.php";
                 }
             </style>
 
-            <div class="row mb-5 mt-3">
+            <div class="row mb-5 mt-3 d-none">
                 <div class="col-md-12 col-12">
                     <div id="chat-wrapper">
 <p class="text-danger">If not logged in, please login with Google to access live chat.</p>
