@@ -174,7 +174,7 @@ require "./inc/sidebar.php";
 
         </div> -->
         <?php if($user[0]['membership'] == 0){?>
-        <a href="./purchase-membership-plan.php">
+        <!-- <a href="./purchase-membership-plan.php">
             <div class="mt-3 mb-4 flex-column alert alert-danger d-flex justify-content-between align-items-start">
             <div>
     <i class="fas fa-exclamation-circle"></i> Membership inactive. Please buy a plan to continue.
@@ -182,7 +182,7 @@ require "./inc/sidebar.php";
 
                 <button class="btn btn-info text-white" style="white-space: nowrap;margin-top:12px;">Check Status</button>
             </div>
-        </a>
+        </a> -->
         <?php } ?>
         <!-- /Page Header -->
     

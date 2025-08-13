@@ -27,7 +27,20 @@ $class = runFatch("SELECT * FROM `tbl_class` WHERE `id`='$cid'");
             <?php if (isset($class)) { ?>
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="./qr.jpeg" alt='class img' class="img-fluid" style="width:60%;margin:auto;">
+                        <img src="./qr.jpeg" alt='qr scanner' class="img-fluid mx-auto" style="width:100%;margin:10px auto;">
+                        <h6 id="upi" class="mt-3 text-primary" onclick="copyUPI('9956153831@ybl')">Click here to copy UPI ID: <span class="text-primary">9956153831@ybl</span></h6>
+
+<script>
+function copyUPI(key) {
+    const text = key;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Copied: " + text);
+    }).catch(err => {
+        console.error("Failed to copy: ", err);
+    });
+}
+</script>
+
                         <ol class="mt-3">
                         <li>Pay the amount: ₹<?= @$class[0]['class_fee']; ?></li>
 <li>Enter the transaction ID after payment</li>
