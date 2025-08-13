@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login with Google</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      max-width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 16px;
+      color: green;
+    }
+    #manualButton {
+      display: none;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Login to Continue</h2>
+    <div id="g_id_onload"
+         data-client_id="190994105019-cuojk3hr4kf7tklj2be2iqnns617ninj.apps.googleusercontent.com"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="true">
+    </div>
+    <div class="g_id_signin" data-type="standard" data-theme="outline" data-size="large"></div>
+
+    <div id="status"></div>
+    <button id="manualButton" onclick="manualRedirect()">Continue in App</button>
+  </div>
+
+  <script>
+    const CLIENT_ID = "190994105019-cuojk3hr4kf7tklj2be2iqnns617ninj.apps.googleusercontent.com";
+
+    function getRedirectUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("redirect") || "https://gnsinghacademy.store/app/";
+    }
+
+   function handleCredentialResponse(response) {
+  document.getElementById("status").innerText = "Authenticating...";
+
+  google.accounts.oauth2.initTokenClient({
+    client_id: CLIENT_ID,
+    scope: "https://www.googleapis.com/auth/youtube.force-ssl",
+    callback: (tokenResponse) => {
+      const accessToken = tokenResponse.access_token;
+
+      // Save locally (optional)
+      if (window.AndroidBridge) {
+        AndroidBridge.saveAccessToken(accessToken);
+      } else {
+        localStorage.setItem("yt_access_token", accessToken);
+      }
+
+      // ✅ Append token to redirect URL
+      const redirectUrl = getRedirectUrl();  // e.g., https://gn...php?type=live&vid=14
+      const separator = redirectUrl.includes("?") ? "&" : "?";
+      const finalUrl = `${redirectUrl}${separator}token=${encodeURIComponent(accessToken)}`;
+
+      redirectToApp(finalUrl);
+    }
+  }).requestAccessToken();
+}
+
+  </script>
+
+</body>
+</html>

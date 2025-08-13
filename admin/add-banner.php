@@ -1,0 +1,95 @@
+<?php
+require "./inc/head.php";
+require "./inc/headbar.php";
+require "./inc/sidebar.php";
+
+if (isset($_GET['banner_id']) && !empty($_GET['banner_id'])) {
+    $banner_id = $_GET['banner_id'];
+
+    $select_banner = runFatch("SELECT * FROM tbl_banner WHERE id = '{$banner_id}'");
+}
+?>
+
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+
+    <div class="content container-fluid">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="page-sub-header">
+                        <h3 class="page-title">Banner Edit</h3>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                            <li class="breadcrumb-item"><a href="./banner.php">Banner</a></li>
+                            <li class="breadcrumb-item active">Banner Edit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->
+
+        <!-- Overview Section -->
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+
+                    <form id="banner_submit">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 class="form-title student-info">Banner Information</h5>
+                            </div>
+
+                            <input type="hidden" name="hidden_id" value="<?= @$select_banner[0]['id'] ?>">
+
+
+                            <div class="col-md-12">
+                                <div class="form-group local-forms">
+                                    <label>Title <span class="login-danger">*</span></label>
+                                    <input name="title" type="text" class="form-control" placeholder="Title" value="<?= @$select_banner[0]['title'] ?>">
+                                </div>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <input type="hidden" name="hidden_image" value="<?= @$select_banner[0]['image'] ?>">
+
+                                <label for="image" class="mb-1">Image</label>
+                                <div class="uploadOuter mb-3">
+                                    <span class="dragBox">
+                                        Drag and Drop image here
+                                        <input type="file" name="image" onChange="dragNdrop(event)" ondragover="drag()" ondrop="drop()" id="uploadFile" />
+                                    </span>
+                                </div>
+                                <div id="preview">
+                                    <?php
+                                    if (isset($select_banner[0]['image']) && !empty($select_banner[0]['image'])) {
+                                    ?>
+                                        <img src="../upload/<?= @$select_banner[0]['image'] ?>" alt="image-priview">
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <img src="./assets/img/demo.png" alt="image-priview">
+                                    <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /Overview Section -->
+    </div>
+
+    <?php
+    require "./inc/footer.php";
+    require "./inc/script.php";
+    ?>

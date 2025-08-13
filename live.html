@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YouTube Live Chat (with Login)</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <style>
+      #chat-box {
+        border: 1px solid #555;
+        padding: 10px;
+        height: 300px;
+        overflow-y: auto;
+        margin-top: 10px;
+      }
+      #chat-form {
+        margin-top: 10px;
+        display: flex;
+      }
+      #chat-input {
+        flex: 1;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Google Sign-in -->
+    <div
+      id="g_id_onload"
+      data-client_id="190994105019-cuojk3hr4kf7tklj2be2iqnns617ninj.apps.googleusercontent.com"
+      data-context="signin"
+      data-ux_mode="popup"
+      data-callback="handleCredentialResponse"
+      data-auto_prompt="false"
+    ></div>
+    <div class="g_id_signin" data-type="standard"></div>
+
+    <!-- Logout Button -->
+    <button
+      id="logout-btn_chat"
+      onclick="logout()"
+      class="btn btn-secondary"
+      style="margin-top: 10px; display: none"
+    >
+      Logout
+    </button>
+    <div id="chat-section" style="display: none">
+      <!-- Chat Box -->
+      <div id="chat-box">Waiting for chat...</div>
+
+      <!-- Chat Form -->
+      <form id="chat-form" onsubmit="return sendMessage(event)">
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Type your message..."
+          required
+        />
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+    <script>
+      const API_KEY = "AIzaSyAM2W_K-uM4QYIw51ITx1p2xvcIstzJsPw";
+      const VIDEO_ID = "u2bEpC_ZA1I";
+      const CLIENT_ID =
+        "190994105019-cuojk3hr4kf7tklj2be2iqnns617ninj.apps.googleusercontent.com";
+      let LIVE_CHAT_ID = "";
+      let accessToken = "";
+
+      window.onload = async () => {
+        const savedToken = localStorage.getItem("yt_access_token");
+        if (savedToken) {
+          accessToken = savedToken;
+          document.getElementById("logout-btn_chat").style.display = "inline-block"; // ✅ show logout
+          await initGapiClient();
+
+          // ✅ Also hide Google Signin button if logged in
+          document.querySelector(".g_id_signin").style.display = "none";
+        }
+      };
+
+      async function initGapiClient() {
+        await gapi.load("client", async () => {
+          await gapi.client.init({
+            apiKey: API_KEY,
+            discoveryDocs: [
+              "https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest",
+            ],
+          });
+          gapi.client.setToken({ access_token: accessToken });
+          LIVE_CHAT_ID = await getLiveChatId(VIDEO_ID);
+          if (LIVE_CHAT_ID) {
+            fetchMessages();
+            setInterval(fetchMessages, 4000); // auto refresh every 4s
+          }
+        });
+      }
+
+      async function getLiveChatId(videoId) {
+        const res = await fetch(
+          `https://www.googleapis.com/youtube/v3/videos?part=liveStreamingDetails&id=${videoId}&key=${API_KEY}`
+        );
+        const data = await res.json();
+        if (
+          data.items.length &&
+          data.items[0].liveStreamingDetails.activeLiveChatId
+        ) {
+          return data.items[0].liveStreamingDetails.activeLiveChatId;
+        } else {
+          alert("❌ Live Chat not available for this video.");
+          return null;
+        }
+      }
+
+      function handleCredentialResponse(response) {
+        google.accounts.oauth2
+          .initTokenClient({
+            client_id: CLIENT_ID,
+            scope: "https://www.googleapis.com/auth/youtube.force-ssl",
+            callback: async (tokenResponse) => {
+              accessToken = tokenResponse.access_token;
+              localStorage.setItem("yt_access_token", accessToken);
+              document.getElementById("logout-btn_chat").style.display =
+                "inline-block";
+              document.getElementById("chat-section").style.display = "block";
+
+              await initGapiClient();
+            },
+          })
+          .requestAccessToken();
+      }
+
+      async function fetchMessages() {
+        try {
+          const res = await gapi.client.youtube.liveChatMessages.list({
+            liveChatId: LIVE_CHAT_ID,
+            part: "snippet,authorDetails",
+          });
+          const chatBox = document.getElementById("chat-box");
+          chatBox.innerHTML = "";
+          res.result.items.forEach((msg) => {
+            const text = msg.snippet.displayMessage;
+            if (!text.toLowerCase().includes("welcome to live chat")) {
+              chatBox.innerHTML += `<div><b style="color:#00e1ff">${msg.authorDetails.displayName}:</b> ${text}</div>`;
+            }
+          });
+        } catch (e) {
+          console.error("Fetch Error:", e);
+        }
+      }
+
+      async function sendMessage(e) {
+        e.preventDefault();
+        const text = document.getElementById("chat-input").value;
+        if (!LIVE_CHAT_ID || !accessToken) return alert("Login first");
+        try {
+          await gapi.client.youtube.liveChatMessages.insert({
+            part: "snippet",
+            resource: {
+              snippet: {
+                liveChatId: LIVE_CHAT_ID,
+                type: "textMessageEvent",
+                textMessageDetails: { messageText: text },
+              },
+            },
+          });
+          document.getElementById("chat-input").value = "";
+        } catch (err) {
+          console.error("Send failed:", err);
+          alert("Failed to send message");
+        }
+        return false;
+      }
+
+      function logout() {
+        localStorage.removeItem("yt_access_token");
+        location.reload(); // force re-login
+      }
+    </script>
+  </body>
+</html>
