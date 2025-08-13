@@ -7,10 +7,10 @@ if ($_SERVER['SERVER_NAME'] === 'localhost' || $_SERVER['SERVER_NAME'] === '192.
     $password = "";
     $database = "divyabhasha";
 } else {
-    $servername = "localhost"; // Change this if your remote server has a different address
+   $servername = "localhost"; // Change this if your remote server has a different address
     $username = "skkgmkywsy";
-    $password = "3dqmDxtPpQ";
-    $database = "nDPMbf6hGt";
+    $password = "nDPMbf6hGt";
+    $database = "skkgmkywsy";
 }
 
 

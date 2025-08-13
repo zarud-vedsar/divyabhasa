@@ -27,7 +27,7 @@ $class = runFatch("SELECT * FROM `tbl_class` WHERE `id`='$cid'");
             <?php if (isset($class)) { ?>
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="../upload/<?= @$class[0]['image'];?>" alt='class img' class="img-fluid" style="width:60%;margin:auto;">
+                        <img src="./qr.jpeg" alt='class img' class="img-fluid" style="width:60%;margin:auto;">
                         <ol class="mt-3">
                         <li>Pay the amount: ₹<?= @$class[0]['class_fee']; ?></li>
 <li>Enter the transaction ID after payment</li>
